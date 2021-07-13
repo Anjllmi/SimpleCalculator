@@ -1,0 +1,359 @@
+﻿<Window x:Class="SimpleCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleCalculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="300"
+        Background="#e6e6e6">
+    
+    <Grid Margin="4">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        
+        
+        
+        
+        <!--Result Label's Background label-->
+        <Label Grid.ColumnSpan="4"
+               Grid.RowSpan="2"
+               Background="#f2f2f2"
+               Margin="2,4">
+        </Label>
+
+        <!--Result Label-->
+        <Label x:Name="Label_LastResult" 
+               Foreground="#404040"
+            Content="0" 
+            FontSize="24"
+            FontFamily="Lucida Sans"
+            Margin="4,2"
+            Grid.ColumnSpan="4"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"/>
+
+        <!--Result Label-->
+        <Label x:Name="Label_Result"    
+            Content="0" 
+            FontSize="30"
+            FontFamily="Lucida Sans"
+            Margin="4,2"
+            Grid.ColumnSpan="4"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Height="50"
+              
+            Grid.Row="1"/>
+        
+        
+        <!--FUNCTION BUTTONS-->
+
+        <!--Clear All button-->
+        <Button x:Name="Button_ClearAll" 
+            Content="CA"
+            Foreground="#404040"
+            Background="#ffece5"
+            BorderBrush="Transparent"
+            FontSize="15"
+            FontFamily="Lucida Sans"
+            Grid.Row="2"
+            Margin="2"/>
+
+        <!--Clear button-->
+        <Button x:Name="Button_Clear"
+                Content="C"
+                Foreground="#404040"
+                Background="#ffece5"
+                BorderBrush="Transparent"
+                FontSize="15"
+                FontFamily="Lucida Sans"
+                Grid.Column="1"
+                Grid.Row="2"
+                Margin="2"/>
+        
+        <!--Backspace button-->
+        <Button x:Name="Button_Backspace"
+                Click="Button_Backspace_Click"
+                Content="←"
+                Foreground="#404040"
+                Background="#ffece5"
+                BorderBrush="Transparent"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="2"
+                Grid.Row="2"
+                Margin="2"/>
+
+        <!--Plus-minus button-->
+        <Button x:Name="Button_PlusMinus"
+                Content="±"
+                Foreground="#404040"
+                Background="#e5ecff"
+                BorderBrush="Transparent"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="2"
+                Grid.Row="6"
+                Margin="2"/>
+
+        <!--Comma button-->
+        <Button x:Name="Button_Comma"
+                Content=","
+                Foreground="#404040"
+                Background="#e5ecff"
+                BorderBrush="Transparent"
+                FontSize="25"
+                FontFamily="Lucida Sans"
+                Grid.Column="0"
+                Grid.Row="6"
+                Padding="0,0,0,15"
+                Margin="2"/>
+        
+        <!--Equal button-->
+        <Button x:Name="Button_Equal"
+                Content="="
+                Foreground="#404040"
+                Background="#e5f9ff"
+                BorderBrush="Transparent"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="0"
+                Grid.Row="7"
+                Grid.ColumnSpan="4"
+                Margin="2"/>
+
+
+        <!--OPERATIONS BUTTONS-->
+        
+        <!--Percentage button-->
+        <Button x:Name="Button_Percentage"
+                Content="%"
+                Foreground="#404040"
+                Background="#e5ecff"
+                BorderBrush="Transparent"
+                FontSize="15"
+                FontFamily="Lucida Sans"
+                Grid.Column="3"
+                Grid.Row="2"
+                Margin="2"/>
+
+        <!--Division button-->
+        <Button x:Name="Button_Division"
+                Content="÷"
+                Foreground="#404040"
+                BorderBrush="Transparent"
+                Background="#e5ecff"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="3"
+                Grid.Row="3"
+                Margin="2"/>
+
+        <!--Multiply button-->
+        <Button x:Name="Button_Multiply"
+                Content="x"
+                Foreground="#404040"
+                Background="#e5ecff"
+                BorderBrush="Transparent"
+                FontSize="15"
+                FontFamily="Lucida Sans"
+                Grid.Column="3"
+                Grid.Row="4"
+                Margin="2"/>
+
+        <!--Subtract button-->
+        <Button x:Name="Button_Subtract"
+                Content="_"
+                Padding="0,0,0,15"
+                Foreground="#404040"
+                Background="#e5ecff"
+                BorderBrush="Transparent"
+                FontSize="25"
+                FontFamily="Lucida Sans"
+                Grid.Column="3"
+                Grid.Row="5"
+                Margin="2"/>
+        
+        <!--Sum button-->
+        <Button x:Name="Button_Sum"
+                Content="+"
+                Foreground="#404040"
+                Background="#e5ecff"
+                BorderBrush="Transparent"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="3"
+                Grid.Row="6"
+                Margin="2"/>
+        
+        
+        <!--NUMBERS BUTTONS-->
+
+        <Button x:Name="Button_Number9"
+                Click="Button_Number_Click"
+                Content="9"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontSize="20"
+                FontWeight="Bold"
+                FontFamily="Lucida Sans"
+                Grid.Column="2"
+                Grid.Row="3"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number8"
+                Click="Button_Number_Click"
+                Content="8"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="1"
+                Grid.Row="3"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number7"
+                Click="Button_Number_Click"
+                Content="7"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Row="3"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number6"
+                Click="Button_Number_Click"
+                Content="6"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="2"
+                Grid.Row="4"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number5"
+                Click="Button_Number_Click"
+                Content="5"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="1"
+                Grid.Row="4"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number4"
+                Click="Button_Number_Click"
+                Content="4"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Row="4"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number3"
+                Click="Button_Number_Click"
+                Content="3"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="2"
+                Grid.Row="5"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number2"
+                Click="Button_Number_Click"
+                Content="2"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="ExtraBold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="1"
+                Grid.Row="5"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number1"
+                Click="Button_Number_Click"
+                Content="1"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Row="5"
+                Margin="2"/>
+
+        <Button x:Name="Button_Number0"
+                Click="Button_Number_Click"
+                Content="0"
+                Background="GhostWhite"
+                BorderBrush="Transparent"
+                FontWeight="Bold"
+                FontSize="20"
+                FontFamily="Lucida Sans"
+                Grid.Column="1"
+                Grid.Row="6"
+                Margin="2"/>
+
+
+
+
+        <!--<StackPanel 
+                VerticalAlignment="Center">
+            
+            
+            
+            <TextBox Text="0"/>
+             
+            <TextBox Text="0"/>
+            
+            <Button Content="0"/>
+            <Button Content="1"/>
+            <Button Content="2"/>
+            <Button Content="3"/>
+            <Button Content="4"/>
+            <Button Content="5"/>
+            <Button Content="6"/>
+            <Button Content="7"/>
+            <Button Content="9"/>
+            <Button Content="+"/>
+            <Button Content="-"/>
+            <Button Content="x"/>
+            <Button Content="÷"/>
+            <Button Content="%"/>
+            
+            <Button Content="="/>
+            
+
+        </StackPanel>-->
+    </Grid>
+</Window>
